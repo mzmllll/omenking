@@ -32,13 +32,12 @@ We'll also run these commands indivually to perform the install manually
 
 ### Create a new User and Generate AWS Credentials
 
-- Go to (IAM Users Console](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/users) andrew create a new user
-- `Enable console access` for the user
-- Create a new `Admin` Group and apply `AdministratorAccess`
-- Create the user and go find and click into the user
-- Click on `Security Credentials` and `Create Access Key`
-- Choose AWS CLI Access
-- Download the CSV with the credentials
+- Go to [IAM Identity Centre](https://us-east-1.console.aws.amazon.com/singlesignon/home?region=us-east-1#!/instances/xxxxxxxxx/users) and create a new user
+- Create a new `IAM User` group and add the user to the group
+- Create a new `Permission set`, select the `AdministratorAccess` from the Predefined permission set types
+- Add the new group `IAM User` to the AWS accounts
+- Add the new permission set `AdministratorAccess` to the AWS account `aws-bootcamp`
+- user will get an email to verify the identiy, create password and enable MFA
 
 ### Set Env Vars
 
@@ -46,7 +45,8 @@ We will set these credentials for the current bash terminal
 ```
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
-export AWS_DEFAULT_REGION=us-east-1
+export AWS_DEFAULT_REGION=canada-central-1
+export export AWS_SESSION_TOKEN=""
 ```
 
 We'll tell Gitpod to remember these credentials if we relaunch our workspaces
@@ -55,7 +55,7 @@ gp env AWS_ACCESS_KEY_ID=""
 gp env AWS_SECRET_ACCESS_KEY=""
 gp env AWS_DEFAULT_REGION=us-east-1
 ```
-
+> Faced error while relaunching the Gitpod env, need to export the env credentials again, as the session token expires after a while
 ### Check that the AWS CLI is working and you are the expected user
 
 ```sh
