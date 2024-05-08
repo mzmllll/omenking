@@ -135,3 +135,6 @@ aws budgets create-budget \
     --budget file://aws/json/budget.json \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
+## Lucid chart Logical diagram
+
+![Logical Architecture Diagram](/_docs/assets/Cruddur%20conceptual%20architecture%20-%20Cruddur%20Logical%20Architecture.png)
